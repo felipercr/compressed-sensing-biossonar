@@ -1,9 +1,23 @@
 % *************************************************************************
-% Felipe Reis Campanha Ribeiro
-% felipercr.eng@gmail.com
-% Telecom SudParis, 2025
+% Author: Felipe Reis Campanha Ribeiro
+% Contact: felipercr.eng@gmail.com
+% Institution: Telecom SudParis, 2025
 %
-% ...
+% Title: Compressed Sensing on the Case of the Inverse Problem of a 
+%        Biomimetic Sonar Inspired by Dolphin Echolocation
+%
+% Description:
+% This code was developed by Felipe Reis for the experiments described in
+% the above article. It is made publicly available to allow replication of
+% the experiments and further development.
+%
+% License:
+% This work is licensed under the MIT License (see LICENSE file in the 
+% repository).
+%
+% Citation:
+% If you use this code in your research or publications, please cite it
+% accordingly
 % *************************************************************************
 
 % =========================================================================
@@ -70,7 +84,7 @@ lambda = 0.0001;
 % Matlab built-in lasso
 [g, stats] = lasso(A_stack, y_stack, "Lambda", lambda);
 
-% SPAMS implementation
+% SPAMS implementation, needs external installation
 %start_spams;
 %param.lambda = lambda;
 %param.mode = 2; % L1 regularization
@@ -78,16 +92,6 @@ lambda = 0.0001;
 %param.tol = 1;
 %param.itermax = 1;
 %g = mexLasso(y_stack, A_stack, param);
-
-% Mosek implementation
-%g = norm_lse_lasso(A_stack, y_stack, lambda);
-
-% Mosek implementation over cvx
-%cvx_solver mosek
-%cvx_begin
-%    variable g(v, 1)                                                  % Optimization variable
-%    minimize( norm(y_stack - A_stack * g, 2) + lambda * norm(g, 1) )  % LASSO
-%cvx_end
 
 fprintf("Optimization problem solved \n\n");
 

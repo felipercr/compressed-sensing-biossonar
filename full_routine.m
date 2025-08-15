@@ -1,16 +1,29 @@
 % *************************************************************************
-% Felipe Reis Campanha Ribeiro
-% felipercr.eng@gmail.com
-% Telecom SudParis, 2025
+% Author: Felipe Reis Campanha Ribeiro
+% Contact: felipercr.eng@gmail.com
+% Institution: Telecom SudParis, 2025
 %
-% ...
+% Title: Compressed Sensing on the Case of the Inverse Problem of a 
+%        Biomimetic Sonar Inspired by Dolphin Echolocation
+%
+% Description:
+% This code was developed by Felipe Reis for the experiments described in
+% the above article. It is made publicly available to allow replication of
+% the experiments and further development.
+%
+% License:
+% This work is licensed under the MIT License (see LICENSE file in the 
+% repository).
+%
+% Citation:
+% If you use this code in your research or publications, please cite it
+% accordingly
 % *************************************************************************
 
 clc;
 clearvars;
 
 % SET THE PARAMETERS ON EACH SCRIPT BEFORE EXECUTING THIS ONE %
-% TODO: make optional to set some of the variables through here
 
 a_simulation_routine;
 b_sparse_coding;
