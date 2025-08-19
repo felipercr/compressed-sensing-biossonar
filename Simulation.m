@@ -249,6 +249,11 @@ classdef Simulation < handle
         function set_result_map(obj, result_map)
             obj.result_map = result_map;
         end
+
+        %% Add a awgn %%
+        function awgn_to_measurements(obj, snr)
+            obj.sensor_data = awgn(obj.sensor_data, snr, 'measured');
+        end
     end
 end
 
