@@ -20,14 +20,14 @@
 % accordingly
 % *************************************************************************
 
-% clc;
-% clearvars;
+clc;
+clearvars;
 addpath("functions\")
 
 % =========================================================================
 % Simulation control
 % =========================================================================
-num_sensors = 11;
+num_sensors = 26;
 sensor_type = 1;
     % 1 = disc receiver
     % 2 = line receiver
@@ -36,7 +36,7 @@ emitter_type = 1;
     % 1 = point
     % 2 = flat
 
-image_number = 1;
+image_number = 4;
 simulation_time = 280e-6; % [s]
 
 simulation = Simulation(sensor_type, emitter_type, num_sensors, ...
@@ -130,8 +130,8 @@ simulation.run_simulation();
 end_of_click = 110e-6;
 simulation.remove_emitter_signal(end_of_click);
 simulation.normalize_data();
-% snr = 0;
-% simulation.awgn_to_measurements(snr);
+snr = 0;
+simulation.awgn_to_measurements(snr);
 
 
 % =========================================================================

@@ -21,12 +21,20 @@
 % *************************************************************************
 
 % =========================================================================
+% Define a non-computable mask
+% =========================================================================
+type = 'half_grid';
+begin = 75;
+nc_mask = create_nc_mask(simulation, type, begin);
+
+
+% =========================================================================
 % If the dictionary for the problem was not created, create
 % If any changes on the sensors array was done, it will need a new one
 % =========================================================================
 dict_name = return_file_name(simulation, 'dictionary');
 if ~exist(dict_name, 'file')  
-    create_dictionary(simulation);  % Create dictionary only if file doesn't exist
+    create_dictionary(simulation, nc_mask);  % Create dictionary only if file doesn't exist
 end
  
 
@@ -94,6 +102,12 @@ lambda = 0.0001;
 %g = mexLasso(y_stack, A_stack, param);
 
 fprintf("Optimization problem solved \n\n");
+
+
+% =========================================================================
+% Correct g with non computed voxels
+% =========================================================================
+g = add_nc_voxels(simulation, nc_mask, g);
 
 
 % =========================================================================

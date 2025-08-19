@@ -53,6 +53,7 @@ classdef Simulation < handle
         fig
         result_map
         n_cut
+        nc_mask
     end
 
 
@@ -253,6 +254,11 @@ classdef Simulation < handle
         %% Add a awgn %%
         function awgn_to_measurements(obj, snr)
             obj.sensor_data = awgn(obj.sensor_data, snr, 'measured');
+        end
+
+        %% Define non computable mask %%
+        function set_nc_mask(obj, nc_mask)
+            obj.nc_mask = nc_mask;
         end
     end
 end
