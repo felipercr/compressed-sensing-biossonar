@@ -40,9 +40,9 @@ vector $g$.
   this dictionary will need to be regenerated. The code saves only the information on the number of sensors, since
   it was the only thing needed for the article.
 
-  - One other important thing is a non-computable mask. This mask is defined here and defines a mask of points that
-    won't enter in the dictionary, reducing the space. This was created so that solutions from high noise scenarios
-    wouldn't concentrate in signals = 0 from the dictionary.
+- One other important thing is a non-computable mask. This mask is defined here and defines a mask of points that
+  won't enter in the dictionary, reducing the space. This was created so that solutions from high noise scenarios
+  wouldn't concentrate in signals = 0 from the dictionary.
 
 >c_gen_resoult_routine.m
 
