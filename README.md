@@ -1,6 +1,6 @@
 # Compressed Sensing Biossonar
 
-## What is this code?
+## What is this code about?
 
 This code is the piece of software used for simulating a dolphin sonar in the case where it tries to recognize 
 an object by sending only one single click. This code makes all the simulations using a software called k-Wave
