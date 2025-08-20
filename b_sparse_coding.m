@@ -26,6 +26,7 @@
 type = 'half_grid';
 begin = 75;
 nc_mask = create_nc_mask(simulation, type, begin);
+simulation.set_nc_mask(nc_mask);
 
 
 % =========================================================================
@@ -87,7 +88,7 @@ clear A_permuted;
 % Call the optimization problem solver
 % =========================================================================
 fprintf("Solving the optimization problem... \n");
-lambda = 0.0001;  
+lambda = 0.001;  
 
 % Matlab built-in lasso
 [g, stats] = lasso(A_stack, y_stack, "Lambda", lambda);

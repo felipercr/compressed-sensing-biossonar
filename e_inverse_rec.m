@@ -39,6 +39,13 @@ fig = gen_reconstructions_plot(maxima_line, map, visible_section, plot);
 
 
 % =========================================================================
+% Reconstruction error
+% =========================================================================
+dists = bwdist(visible_section);
+avg_rec_dist = sum(dists .* maxima_line, 'all') / sum(visible_section, 'all');
+
+
+% =========================================================================
 % Save image
 % =========================================================================
 saveas(fig, return_file_name(simulation, 'recplt'));
@@ -47,6 +54,6 @@ saveas(fig, return_file_name(simulation, 'recplt'));
 % =========================================================================
 % Clear workspace
 % =========================================================================
-clearvars -except simulation obj_loaclization_accuracy obj_shape_error;
+clearvars -except simulation obj_loaclization_accuracy obj_shape_error avg_rec_dist;
 
 

@@ -20,8 +20,8 @@
 % accordingly
 % *************************************************************************
 
-clc;
-clearvars;
+%clc;
+%clearvars;
 addpath("functions\")
 
 % =========================================================================
@@ -36,8 +36,11 @@ emitter_type = 1;
     % 1 = point
     % 2 = flat
 
-image_number = 4;
+image_number = 1;
 simulation_time = 280e-6; % [s]
+
+add_noise = 0;
+snr = -10;
 
 simulation = Simulation(sensor_type, emitter_type, num_sensors, ...
     image_number, simulation_time);
@@ -129,9 +132,10 @@ simulation.run_simulation();
 % =========================================================================
 end_of_click = 110e-6;
 simulation.remove_emitter_signal(end_of_click);
-simulation.normalize_data();
-snr = 0;
-simulation.awgn_to_measurements(snr);
+if add_noise
+    simulation.awgn_to_measurements(snr);
+end
+simulation.normalize_data(); % Normalization after adding the noise
 
 
 % =========================================================================

@@ -30,7 +30,7 @@ load('g.mat', 'g');
 % Generate result
 % =========================================================================
 sigma = 3;         % Controls "spread" of influence 
-threshold = 0.2;   % Filter everything below this value
+threshold = 0.1;   % Filter everything below this value
 plot = 1;          % Boolean, plot or not
 [fig, map] = gen_result_map(simulation, g, sigma, threshold, plot);
 simulation.set_result_map(map);

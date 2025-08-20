@@ -32,9 +32,10 @@ visible_section = return_visible_section(simulation, aperture_angle_degrees);
 % =========================================================================
 result_map = simulation.result_map;
 
-obj_loaclization_accuracy = (sum(visible_section .* result_map) / sum(visible_section)) * 100;
+obj_loaclization_accuracy = (sum(visible_section .* result_map, 'all') / sum(visible_section, 'all')) * 100;
 
-obj_shape_error = (sum(~visible_section .* result_map) / sum(~visible_section)) * 100;
+dists = bwdist(visible_section);
+obj_shape_error = (sum(~visible_section .* result_map .* dists, 'all') / (sum(result_map, 'all')*10)) * 100;
 
 
 % =========================================================================

@@ -25,6 +25,7 @@ clearvars;
 
 % SET THE PARAMETERS ON EACH SCRIPT BEFORE EXECUTING THIS ONE %
 
+
 a_simulation_routine;
 b_sparse_coding;
 c_gen_result_routine;
