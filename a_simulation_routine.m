@@ -61,7 +61,7 @@ simulation.create_grid(Nx, Ny, dx, dy);
 % =========================================================================
 % Loading the object images
 % =========================================================================
-image_objects_file = ['object_images/im' num2str(image_number) '.bmp'];
+image_objects_file = ['object_images/im' num2str(image_number) '.png'];
 simulation.load_object_image(image_objects_file)
 
 
